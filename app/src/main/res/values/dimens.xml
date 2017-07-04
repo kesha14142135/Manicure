@@ -1,0 +1,12 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="image_view_logo_height">200dp</dimen>
+    <dimen name="image_view_logo_margin">20dp</dimen>
+    <dimen name="relative_layout_margin">20dp</dimen>
+    <dimen name="edit_text_authorization_height">40dp</dimen>
+    <dimen name="edit_text_phone_number_margin_bottom">8dp</dimen>
+    <dimen name="edit_text_password_margin_bottom">20dp</dimen>
+    <dimen name="image_view_logo_width">200dp</dimen>
+</resources>

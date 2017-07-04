@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Manicure</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Authorization">Авторизация</string>
+    <string name="Registration">Регистрация</string>
+    <string name="ForgotPassword">Забыли пароль?</string>
+    <string name="TelephoneNumber">Номер телефона</string>
+    <string name="Password">Пароль</string>
+    <string name="error_password_empty">Введите пароль</string>
+    <string name="error_registration_min">Пароль должен быть больше 4 символов</string>
+    <string name="error_telephone_number_empty">Введите номер телефона</string>
+    <string name="error_telephone_number_min">Номер телефона не меньше 10 цифр</string>
+</resources>
