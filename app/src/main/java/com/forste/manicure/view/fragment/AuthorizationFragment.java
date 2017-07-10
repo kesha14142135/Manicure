@@ -13,6 +13,7 @@ import com.forste.manicure.R;
 import com.forste.manicure.contract.AuthorizationContract;
 import com.forste.manicure.model.User;
 import com.forste.manicure.present.AuthorizationPresenter;
+import com.forste.manicure.view.callback.CallBackActivityFragment;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
@@ -23,6 +24,11 @@ import java.util.List;
 public class AuthorizationFragment extends Fragment implements AuthorizationContract.View,
         View.OnClickListener, Validator.ValidationListener {
 
+    private View mView;
+    private AuthorizationContract.Presenter mPresenter;
+    private Validator mValidator;
+    private CallBackActivityFragment mCallBack;
+
     @NotEmpty(messageResId = R.string.error_telephone_number_empty)
     @Password(min = 9, scheme = Password.Scheme.NUMERIC, messageResId = R.string.error_telephone_number_min)
     private EditText mEditTextTelephoneNumber;
@@ -30,10 +36,6 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
     @NotEmpty(messageResId = R.string.error_password_empty)
     @Password(min = 4, scheme = Password.Scheme.NUMERIC, messageResId = R.string.error_registration_min)
     private EditText mEditTextPassword;
-
-    private View mView;
-    private AuthorizationContract.Presenter mPresenter;
-    private Validator mValidator;
 
     public AuthorizationFragment() {
     }
@@ -58,21 +60,29 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (context instanceof CallBackActivityFragment) {
+            mCallBack = (CallBackActivityFragment) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement CallBackActivityFragment.Authorization");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        mCallBack = null;
     }
 
     @Override
     public void authorizationWasSuccessful() {
-
+        mCallBack.goToHomeScreen();
     }
 
     @Override
     public void showError(String message) {
-
+        Snackbar.make(mView.findViewById(R.id.relative_layout_authorization), message, Snackbar.LENGTH_LONG)
+                .show();
     }
 
     private void updateViewDependencies(View view) {
@@ -92,9 +102,11 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
                 break;
             }
             case R.id.button_registration: {
+                mCallBack.clickRegistration();
                 break;
             }
             case R.id.button_forgot_password: {
+                mCallBack.clickForgotPassword();
                 break;
             }
         }

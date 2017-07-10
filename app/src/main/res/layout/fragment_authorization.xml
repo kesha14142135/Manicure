@@ -30,6 +30,7 @@
                 android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
                 android:background="@color/colorAccent"
                 android:gravity="center"
+                android:text="0974216279"
                 android:hint="@string/TelephoneNumber"
                 android:inputType="phone" />
 
@@ -40,8 +41,9 @@
                 android:layout_below="@+id/edit_text_phone_number"
                 android:layout_marginBottom="@dimen/edit_text_password_margin_bottom"
                 android:background="@color/colorAccent"
+                android:text="1234"
                 android:gravity="center"
-                android:hint="@string/Password"
+                android:hint="@string/password"
                 android:inputType="textPassword" />
 
             <Button

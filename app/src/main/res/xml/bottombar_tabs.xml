@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        icon="@mipmap/ic_time"
+        id="@+id/tab_profile"
+        title="Профиль" />
+    <tab
+        icon="@mipmap/ic_list"
+        id="@+id/tab_list"
+        title="Список" />
+    <tab
+        icon="@mipmap/ic_history"
+        id="@+id/tab_history"
+        title="История" />
+    <tab
+        icon="@mipmap/ic_time"
+        id="@+id/tab_time"
+        title="Запись" />
+    <tab
+        icon="@mipmap/ic_list"
+        id="@+id/tab_price"
+        title="Цена" />
+</tabs>

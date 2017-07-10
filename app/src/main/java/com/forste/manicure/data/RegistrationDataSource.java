@@ -10,6 +10,6 @@ import com.forste.manicure.model.User;
 public class RegistrationDataSource implements RegistrationBaseDataSource {
     @Override
     public void userRegistration(Person person, CallBackRegistration callBack) {
-        callBack.onSuccess();
+        callBack.onSuccess("329ruwfwpfjf43ewsjfr3r43f4f");
     }
 }

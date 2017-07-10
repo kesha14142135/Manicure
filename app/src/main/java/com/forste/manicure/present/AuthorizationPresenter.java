@@ -20,7 +20,7 @@ public class AuthorizationPresenter implements AuthorizationContract.Presenter {
         mDataSource.userVerification(user,
                 new AuthorizationBaseDataSource.CallBackVerification() {
                     @Override
-                    public void onSuccess() {
+                    public void onSuccess(String callBack) {
                         mView.authorizationWasSuccessful();
                     }
 

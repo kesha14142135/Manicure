@@ -10,7 +10,7 @@ public interface AuthorizationBaseDataSource {
     void userVerification(User user, CallBackVerification callBack);
 
     interface CallBackVerification {
-        void onSuccess();
+        void onSuccess(String token);
 
         void onFailure(String message);
     }

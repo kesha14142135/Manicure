@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,13 +11,20 @@
         android:layout_height="match_parent"
         android:background="@color/colorWhite">
 
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/ic_back"/>
+
         <ImageView
             android:id="@+id/image_view_photo_user"
             android:layout_width="@dimen/image_view_logo_width"
             android:layout_height="@dimen/image_view_logo_height"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/image_view_logo_margin"
-            android:src="@drawable/logo" />
+            android:background="@drawable/ic_girl" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -39,21 +47,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edit_text_authorization_height"
                 android:layout_below="@+id/edit_text_phone_number"
+                android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/edit_text_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_authorization_height"
+                android:layout_below="@+id/edit_text_password"
+                android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_authorization_height"
+                android:layout_below="@+id/edit_text_email"
                 android:layout_marginBottom="@dimen/edit_text_password_margin_bottom"
                 android:background="@color/colorAccent"
                 android:gravity="center"
-                android:hint="@string/Password"
-                android:inputType="textPassword" />
-
+                android:hint="@string/name"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/button_registration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/edit_text_password"
+                android:layout_below="@id/edit_text_name"
                 android:text="@string/Registration" />
 
         </RelativeLayout>
-
     </RelativeLayout>
 </FrameLayout>

@@ -13,6 +13,14 @@ public class Person {
     private Bitmap mPhoto;
     private String mPassword;
 
+    public Person(String name, String telephoneNumber, String email, String password, Bitmap photo) {
+        mName = name;
+        mTelephoneNumber = telephoneNumber;
+        mEmail = email;
+        mPassword = password;
+        mPhoto = photo;
+    }
+
     public void getName(String name) {
         mName = name;
     }

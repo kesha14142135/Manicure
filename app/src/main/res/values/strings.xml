@@ -10,9 +10,24 @@
     <string name="Registration">Регистрация</string>
     <string name="ForgotPassword">Забыли пароль?</string>
     <string name="TelephoneNumber">Номер телефона</string>
-    <string name="Password">Пароль</string>
+    <string name="password">Пароль</string>
     <string name="error_password_empty">Введите пароль</string>
     <string name="error_registration_min">Пароль должен быть больше 4 символов</string>
     <string name="error_telephone_number_empty">Введите номер телефона</string>
     <string name="error_telephone_number_min">Номер телефона не меньше 10 цифр</string>
+    <string name="email">Електронная почта</string>
+    <string name="name">Имя</string>
+    <string name="error_email_empty">Введите email</string>
+    <string name="error_not_email">Проверьте email</string>
+    <string name="error_name_empty">Введите имя</string>
+    <string name="select_photo">Выбирете фото</string>
+    <string name="data_of_creation_of_manicure">21  Марта 2017</string>
+    <string name="telephone_number">+38(XXX)XXX-XXXX</string>
+    <string name="record">Записи</string>
+    <string name="user_token">USER_TOKEN</string>
+    <string name="token">TOKEN</string>
+    <string name="recicler_view_is_empty">Записей на маникюр еще нет</string>
+    <string name="cancel">Отмена</string>
+    <string name="ok">OK</string>
+    <string name="call_back">CALLBACK</string>
 </resources>

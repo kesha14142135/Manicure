@@ -2,6 +2,7 @@ package com.forste.manicure.present;
 
 import com.forste.manicure.contract.ForgotPasswordContract;
 import com.forste.manicure.data.ForgotPasswordBaseDataSource;
+import com.forste.manicure.data.ForgotPasswordDataSource;
 
 /**
  * Created by sergejkozin on 7/3/17.
@@ -17,12 +18,12 @@ public class ForgotPasswordPresenter implements ForgotPasswordContract.Presenter
         mDataSource.sandMail(mail, new ForgotPasswordBaseDataSource.CallBackMailSand() {
             @Override
             public void onSuccess() {
-
+                mView.onSuccess();
             }
 
             @Override
             public void onFailure(String massage) {
-
+                mView.showError(massage);
             }
         });
     }
@@ -30,6 +31,7 @@ public class ForgotPasswordPresenter implements ForgotPasswordContract.Presenter
     @Override
     public void attachView(ForgotPasswordContract.View view) {
         mView = view;
+        mDataSource = new ForgotPasswordDataSource();
     }
 
     @Override

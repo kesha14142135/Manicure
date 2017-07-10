@@ -11,7 +11,7 @@ public interface RegistrationBaseDataSource {
     void userRegistration(Person person, CallBackRegistration callBack);
 
     interface CallBackRegistration {
-        void onSuccess();
+        void onSuccess(String token);
 
         void onFailure(String message);
     }
