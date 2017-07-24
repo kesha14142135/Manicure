@@ -4,12 +4,12 @@ package com.forste.manicure.model;
  * Created by sergejkozin on 7/8/17.
  */
 
-class ManicureService {
+public class ManicureService {
     private int mId;
     private String mName;
     private int mPrice;
 
-    ManicureService(int id, String name, int price) {
+    public ManicureService(int id, String name, int price) {
         mId = id;
         mName = name;
         mPrice = price;

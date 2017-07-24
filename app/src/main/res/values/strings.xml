@@ -6,7 +6,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Authorization">Авторизация</string>
+    <string name="Authorization">Войти</string>
     <string name="Registration">Регистрация</string>
     <string name="ForgotPassword">Забыли пароль?</string>
     <string name="TelephoneNumber">Номер телефона</string>
@@ -30,4 +30,55 @@
     <string name="cancel">Отмена</string>
     <string name="ok">OK</string>
     <string name="call_back">CALLBACK</string>
+    <string name="you_data">Ваши данные</string>
+    <string name="profile">Профиль</string>
+    <string name="manicure">Обрезной маникюр</string>
+    <string name="date_record">23 ноября 2017</string>
+    <string name="time_record">10:15</string>
+    <string name="master_name">Дарья Митрофанова</string>
+    <string name="about_master">Отличный мастер маникюра и педикюра, покрытие только качественными гель-лаками. </string>
+    <string name="master_instagram">\@llldashalll</string>
+    <string name="master_phone">+380970170209</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="name_of_the_manicure">Обрезной маникюр</string>
+    <string name="price_of_the_manicure">120 грн</string>
+    <string name="time_of_the_manicure">2 часа</string>
+    <string name="instagram_master_path">http://instagram.com/xxx</string>
+    <string name="instagram_path">com.instagram.android</string>
+    <string name="telephone_number_master">0974216279</string>
+    <string name="tel">tel:</string>
+    <string name="time">10.30-20.45</string>
+    <string name="error_authorisation">Ошибка авторизации</string>
+    <string name="error_registration_user">Ошибка при регистрации пользователя</string>
+    <string name="error_additional_registration_person">Ошибка дополнительной регистрации пользователя</string>
+    <string name="error_change_password">Ошибка изменения пароля</string>
+    <string name="error_user_photo">Ошибка записи фото</string>
+    <string name="get">Получить</string>
+    <string name="apply">Применить</string>
+    <string-array name="time_array">
+        <item>00.00 – 01.00 </item>
+        <item>01.00 – 02.00 </item>
+        <item>02.00 - 03.00 </item>
+        <item>03.00 - 04.00 </item>
+        <item>04.00 - 05.00 </item>
+        <item>05.00 - 06.00 </item>
+        <item>06.00 - 07.00 </item>
+        <item>07.00 - 08.00 </item>
+        <item>08.00 - 09.00 </item>
+        <item>09.00 - 10.00 </item>
+        <item>10.00 - 11.00 </item>
+        <item>11.00 - 12.00 </item>
+        <item>12.00 - 13.00 </item>
+        <item>13.00 - 14.00 </item>
+        <item>14.00 - 15.00 </item>
+        <item>15.00 - 16.00 </item>
+        <item>16.00 - 17.00 </item>
+        <item>17.00 - 18.00 </item>
+        <item>18.00 - 19.00 </item>
+        <item>19.00 - 20.00 </item>
+        <item>20.00 - 21.00 </item>
+        <item>21.00 - 22.00 </item>
+        <item>22.00 - 23.00 </item>
+        <item>23.00 - 24.00 </item>
+    </string-array>
 </resources>

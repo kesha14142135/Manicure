@@ -1,5 +1,7 @@
 package com.forste.manicure.present;
 
+import com.forste.manicure.R;
+import com.forste.manicure.SessionManager;
 import com.forste.manicure.contract.AuthorizationContract;
 import com.forste.manicure.data.AuthorizationBaseDataSource;
 import com.forste.manicure.data.AuthorizationDataSource;
@@ -20,13 +22,15 @@ public class AuthorizationPresenter implements AuthorizationContract.Presenter {
         mDataSource.userVerification(user,
                 new AuthorizationBaseDataSource.CallBackVerification() {
                     @Override
-                    public void onSuccess(String callBack) {
+                    public void onSuccess(String uid) {
+                        SessionManager sessionManager = new SessionManager(mView.getContext());
+                        sessionManager.createLoginSession(uid);
                         mView.authorizationWasSuccessful();
                     }
 
                     @Override
-                    public void onFailure(String message) {
-                        mView.showError(message);
+                    public void onFailure() {
+                        mView.showError(mView.getContext().getString(R.string.error_authorisation));
                     }
                 });
     }

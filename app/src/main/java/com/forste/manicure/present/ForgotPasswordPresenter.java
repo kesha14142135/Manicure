@@ -1,5 +1,6 @@
 package com.forste.manicure.present;
 
+import com.forste.manicure.R;
 import com.forste.manicure.contract.ForgotPasswordContract;
 import com.forste.manicure.data.ForgotPasswordBaseDataSource;
 import com.forste.manicure.data.ForgotPasswordDataSource;
@@ -22,8 +23,8 @@ public class ForgotPasswordPresenter implements ForgotPasswordContract.Presenter
             }
 
             @Override
-            public void onFailure(String massage) {
-                mView.showError(massage);
+            public void onFailure() {
+                mView.showError(mView.getContext().getString(R.string.error_change_password));
             }
         });
     }

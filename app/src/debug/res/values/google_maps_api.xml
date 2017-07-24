@@ -1,0 +1,26 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=45:FD:9C:5F:9A:AF:CA:A5:04:9E:C5:26:65:C0:12:67:05:19:EB:2C%3Bcom.forste.manicure.view.activity
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    45:FD:9C:5F:9A:AF:CA:A5:04:9E:C5:26:65:C0:12:67:05:19:EB:2C
+
+    SHA-1 certificate fingerprint:
+    45:FD:9C:5F:9A:AF:CA:A5:04:9E:C5:26:65:C0:12:67:05:19:EB:2C
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyCqU5ZyR45fbkHBypt28MGvuLkwf0IxmrA
+    </string>
+</resources>

@@ -6,10 +6,10 @@
     <dimen name="image_view_logo_margin">20dp</dimen>
     <dimen name="relative_layout_margin">20dp</dimen>
     <dimen name="edit_text_authorization_height">40dp</dimen>
-    <dimen name="edit_text_phone_number_margin_bottom">8dp</dimen>
-    <dimen name="edit_text_password_margin_bottom">20dp</dimen>
+    <dimen name="edit_text_phone_number_margin_bottom">16dp</dimen>
+    <dimen name="edit_text_password_margin_bottom">40dp</dimen>
     <dimen name="image_view_logo_width">200dp</dimen>
-    <dimen name="edit_text_email_bottom">50dp</dimen>
+    <dimen name="edit_text_email_bottom">60dp</dimen>
     <dimen name="card_view_margin">5dp</dimen>
     <dimen name="margin_text_view_data">5dp</dimen>
     <dimen name="linear_layout_margin">5dp</dimen>
@@ -19,4 +19,32 @@
     <dimen name="layout_height_photo">100dp</dimen>
     <dimen name="card_view_elevation">4dp</dimen>
     <dimen name="relative_layout_fragment_dialog_margin">4dp</dimen>
+    <dimen name="button_margin_right">10dp</dimen>
+    <dimen name="button_margin_left">10dp</dimen>
+    <dimen name="margin_linear_layout">10dp</dimen>
+    <dimen name="image_width_record">30dp</dimen>
+    <dimen name="image_height_record">30dp</dimen>
+    <dimen name="relative_layout_margin_left">10dp</dimen>
+    <dimen name="button_width">30dp</dimen>
+    <dimen name="button_height">30dp</dimen>
+    <dimen name="text_view_margin_left_record_time">20dp</dimen>
+    <dimen name="image_view_margin_price">10dp</dimen>
+    <dimen name="image_view_icon_height">40dp</dimen>
+    <dimen name="maps_view_margin_top">10dp</dimen>
+    <dimen name="text_view_manicure_margin_right">20dp</dimen>
+    <dimen name="line_height">1dp</dimen>
+    <dimen name="linear_layout_column_margin_bottom">2dp</dimen>
+    <dimen name="text_size_date">32sp</dimen>
+    <dimen name="relative_layout_margin_bottom">7dp</dimen>
+
+    <dimen name="edit_text_margin">4dp</dimen>
+    <dimen name="button_height_authorisation">44dp</dimen>
+    <dimen name="edit_text_padding_left">20dp</dimen>
+
+    <dimen name="ball_view_width">100dp</dimen>
+    <dimen name="ball_view_height">100dp</dimen>
+    <dimen name="ball_view_margin">30dp</dimen>
+    <dimen name="ball_max_size">12dp</dimen>
+    <dimen name="ball_min_size">5dp</dimen>
+    <dimen name="text_size_toolbar">18sp</dimen>
 </resources>

@@ -3,6 +3,8 @@ package com.forste.manicure.view.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,6 +19,7 @@ import com.forste.manicure.contract.RegistrationContract;
 import com.forste.manicure.model.Person;
 import com.forste.manicure.present.RegistrationPresenter;
 import com.forste.manicure.view.callback.CallBackActivityFragment;
+import com.github.glomadrian.loadingballs.BallView;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
@@ -35,7 +38,7 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     private Validator mValidator;
     private RegistrationContract.Presenter mPresenter;
     private CallBackActivityFragment mCallBack;
-
+    private BallView mProgressBar;
     private ImageView mImageViewPhoto;
 
     @NotEmpty(messageResId = R.string.error_password_empty)
@@ -91,12 +94,14 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
 
     @Override
     public void showError(String message) {
+        mProgressBar.setVisibility(View.INVISIBLE);
         Snackbar.make(mView.findViewById(R.id.relative_layout_registration), message, Snackbar.LENGTH_LONG)
                 .show();
     }
 
     @Override
     public void registrationSuccessful() {
+        mProgressBar.setVisibility(View.INVISIBLE);
         mCallBack.goToHomeScreen();
     }
 
@@ -104,6 +109,10 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_registration: {
+                mEditTextEmail.setBackgroundResource(R.drawable.edit_text_border_neutrally);
+                mEditTextPassword.setBackgroundResource(R.drawable.edit_text_border_neutrally);
+                mEditTextTelephoneNumber.setBackgroundResource(R.drawable.edit_text_border_neutrally);
+                mEditTextName.setBackgroundResource(R.drawable.edit_text_border_neutrally);
                 mValidator.validate();
                 break;
             }
@@ -122,16 +131,14 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Bitmap bitmap = ImagePicker.getImageFromResult(getActivity(), requestCode, resultCode, data);
         if (bitmap != null) {
-
             mImageViewPhoto.setImageBitmap(cropCenterOfImage(bitmap));
         }
         InputStream is = ImagePicker.getInputStreamFromResult(getActivity(), requestCode, resultCode, data);
         if (is != null) {
-
             try {
                 is.close();
             } catch (IOException ex) {
-                // ignore
+                //Todo use exception
             }
         } else {
 
@@ -143,27 +150,41 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     public void onValidationSucceeded() {
         Person person = new Person(
                 mEditTextName.getText().toString(),
-                mEditTextEmail.getText().toString(),
-                mEditTextPassword.getText().toString(),
                 mEditTextTelephoneNumber.getText().toString(),
-                mImageViewPhoto.getDrawingCache()
+                mEditTextEmail.getText().toString(),
+                isPhotoUploaded(mImageViewPhoto)
         );
-        mPresenter.registration(person);
+        mProgressBar.setVisibility(View.VISIBLE);
+        mPresenter.registration(person, mEditTextPassword.getText().toString());
 
     }
 
     @Override
     public void onValidationFailed(List<ValidationError> errors) {
+        String textError = "";
         for (ValidationError error : errors) {
             View view = error.getView();
             String message = error.getCollatedErrorMessage(view.getContext());
             if (view instanceof EditText) {
-                ((EditText) view).setError(message);
+                ((EditText) view).setBackgroundResource(R.drawable.edit_text_border);
+                textError += message + "\n";
             } else {
                 Snackbar.make(mView.findViewById(R.id.relative_layout_registration), message, Snackbar.LENGTH_LONG)
                         .show();
             }
         }
+        Snackbar.make(mView.findViewById(R.id.relative_layout_registration), textError, Snackbar.LENGTH_LONG)
+                .show();
+    }
+
+    private Bitmap isPhotoUploaded(ImageView imageView) {
+        Bitmap bitmap;
+        if (null == imageView.getDrawable()) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.default_image);
+        } else {
+            bitmap = ((BitmapDrawable) mImageViewPhoto.getDrawable()).getBitmap();
+        }
+        return bitmap;
     }
 
     private Bitmap cropCenterOfImage(Bitmap srcBmp) {
@@ -189,13 +210,13 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     }
 
     private void updateViewDependencies(View view) {
+        mProgressBar = (BallView) view.findViewById(R.id.progress_bar);
         mImageViewPhoto = (ImageView) view.findViewById(R.id.image_view_photo_user);
         mImageViewPhoto.setOnClickListener(this);
         mEditTextName = (EditText) view.findViewById(R.id.edit_text_name);
         mEditTextPassword = (EditText) view.findViewById(R.id.edit_text_password);
         mEditTextEmail = (EditText) view.findViewById(R.id.edit_text_email);
         mEditTextTelephoneNumber = (EditText) view.findViewById(R.id.edit_text_phone_number);
-
         view.findViewById(R.id.button_registration).setOnClickListener(this);
         view.findViewById(R.id.button_back).setOnClickListener(this);
     }

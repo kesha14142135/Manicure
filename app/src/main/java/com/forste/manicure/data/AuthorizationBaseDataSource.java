@@ -12,6 +12,6 @@ public interface AuthorizationBaseDataSource {
     interface CallBackVerification {
         void onSuccess(String token);
 
-        void onFailure(String message);
+        void onFailure();
     }
 }

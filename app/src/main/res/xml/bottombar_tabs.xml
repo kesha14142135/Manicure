@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs xmlns:android="http://schemas.android.com/apk/res/android">
     <tab
-        icon="@mipmap/ic_time"
+        icon="@mipmap/ic_settings_gray"
         id="@+id/tab_profile"
-        title="Профиль" />
+        title="Профиль"
+        badgeHidesWhenActive="true"/>
     <tab
-        icon="@mipmap/ic_list"
+        icon="@mipmap/ic_photo_gray"
         id="@+id/tab_list"
-        title="Список" />
+        title="Список"
+        badgeHidesWhenActive="true"/>
     <tab
-        icon="@mipmap/ic_history"
-        id="@+id/tab_history"
-        title="История" />
-    <tab
-        icon="@mipmap/ic_time"
+        icon="@mipmap/ic_clock_gray"
         id="@+id/tab_time"
-        title="Запись" />
+        title="История"
+        badgeHidesWhenActive="true"/>
     <tab
-        icon="@mipmap/ic_list"
+        icon="@mipmap/ic_monitor_gray"
+        id="@+id/tab_history"
+        title="Запись"
+        badgeHidesWhenActive="true"/>
+    <tab
+        icon="@mipmap/ic_info_gray"
         id="@+id/tab_price"
-        title="Цена" />
+        title="Цена"
+        badgeHidesWhenActive="true"/>
 </tabs>

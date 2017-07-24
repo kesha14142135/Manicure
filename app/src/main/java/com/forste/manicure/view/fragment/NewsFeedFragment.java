@@ -55,7 +55,7 @@ public class NewsFeedFragment extends Fragment implements NewsFeedContract.View 
 
     @Override
     public void showError(String message) {
-        Snackbar.make(mView.findViewById(R.id.relative_layout_news_feed), message, Snackbar.LENGTH_LONG)
+        Snackbar.make(mView.findViewById(R.id.relative_layout_news_feed), message, Snackbar.LENGTH_SHORT)
                 .show();
     }
 

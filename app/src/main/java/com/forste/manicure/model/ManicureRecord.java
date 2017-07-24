@@ -2,6 +2,9 @@ package com.forste.manicure.model;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -9,38 +12,50 @@ import java.util.List;
  */
 
 public class ManicureRecord {
-    private Time mTime;
-    private Date mDate;
-    private List<ManicureService> mManicureServices;
+    private Calendar mDate;
+    private ManicureService mManicureService;
 
 
-   public ManicureRecord(Time time, Date date, List<ManicureService> manicureServices) {
-        mTime = time;
+    public ManicureRecord(Calendar date, ManicureService manicureService) {
         mDate = date;
-        mManicureServices = manicureServices;
+        mManicureService = manicureService;
     }
 
-    public Date getDate() {
+    public ManicureRecord() {
+
+    }
+
+    public Calendar getDate() {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         mDate = date;
     }
 
-    public Time getTime() {
-        return mTime;
+    public ManicureService getManicureService() {
+        return mManicureService;
     }
 
-    public void setTime(Time time) {
-        mTime = time;
+    public void setManicureService(ManicureService manicureService) {
+        mManicureService = manicureService;
     }
 
-    public List<ManicureService> getManicureServices() {
-        return mManicureServices;
+    public boolean currentTimeIsShorter() {
+        return mDate.getTimeInMillis() > Calendar.getInstance().getTimeInMillis();
     }
 
-    public void setManicureServices(List<ManicureService> manicureServices) {
-        mManicureServices = manicureServices;
+    public String recordDate() {
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+        dateFormat.setCalendar(mDate);
+        String dateFormatted = dateFormat.format(mDate.getTime());
+        return dateFormatted;
+    }
+
+    public String recordTime() {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.setCalendar(mDate);
+        String dateFormatted = dateFormat.format(mDate.getTime());
+        return dateFormatted;
     }
 }

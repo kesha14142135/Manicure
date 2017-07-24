@@ -13,6 +13,7 @@ import com.forste.manicure.R;
 import com.forste.manicure.contract.ForgotPasswordContract;
 import com.forste.manicure.present.ForgotPasswordPresenter;
 import com.forste.manicure.view.callback.CallBackActivityFragment;
+import com.github.glomadrian.loadingballs.BallView;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
@@ -27,6 +28,8 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
     private Validator mValidator;
     private ForgotPasswordContract.Presenter mPresenter;
     private CallBackActivityFragment mCallBack;
+    private BallView mProgressBar;
+
 
     @NotEmpty(messageResId = R.string.error_email_empty)
     @Email(messageResId = R.string.error_not_email)
@@ -68,11 +71,13 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onSuccess() {
+        mProgressBar.setVisibility(View.INVISIBLE);
         getActivity().onBackPressed();
     }
 
     @Override
     public void showError(String message) {
+        mProgressBar.setVisibility(View.INVISIBLE);
         Snackbar.make(mView.findViewById(R.id.relative_layout_forgot_password), message, Snackbar.LENGTH_LONG)
                 .show();
     }
@@ -85,6 +90,7 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
                 break;
             }
             case R.id.button_registration: {
+                mEditTextEmail.setBackgroundResource(R.drawable.edit_text_border_neutrally);
                 mValidator.validate();
                 break;
             }
@@ -103,7 +109,7 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
             View view = error.getView();
             String message = error.getCollatedErrorMessage(view.getContext());
             if (view instanceof EditText) {
-                ((EditText) view).setError(message);
+                ((EditText) view).setBackgroundResource(R.drawable.edit_text_border);
             } else {
                 Snackbar.make(mView.findViewById(R.id.relative_layout_forgot_password), message, Snackbar.LENGTH_LONG)
                         .show();
@@ -112,6 +118,7 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
     }
 
     private void updateViewDependencies(View view) {
+        mProgressBar = (BallView) view.findViewById(R.id.progress_bar);
         mEditTextEmail = (EditText) mView.findViewById(R.id.edit_text_email);
         view.findViewById(R.id.button_registration).setOnClickListener(this);
         view.findViewById(R.id.button_back).setOnClickListener(this);

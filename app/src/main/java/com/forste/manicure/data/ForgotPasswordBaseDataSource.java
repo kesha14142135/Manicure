@@ -10,6 +10,6 @@ public interface ForgotPasswordBaseDataSource {
     interface CallBackMailSand {
         void onSuccess();
 
-        void onFailure(String massage);
+        void onFailure();
     }
 }

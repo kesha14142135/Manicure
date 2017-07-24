@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.forste.manicure.R;
 
+import com.forste.manicure.model.Person;
 import com.forste.manicure.view.callback.CallBackDialogFragmentPerson;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
@@ -31,6 +32,7 @@ public class ChangePersonDataFragmentDialog extends DialogFragment implements Vi
 
     private View mView;
     private TextView mTextViewTitle;
+    private Person mPerson;
 
     @NotEmpty(messageResId = R.string.error_email_empty)
     @Email(messageResId = R.string.error_not_email)
@@ -45,16 +47,12 @@ public class ChangePersonDataFragmentDialog extends DialogFragment implements Vi
 
     private Validator mValidator;
     private CallBackDialogFragmentPerson mCallBack;
-    private static String NAME = "NAME";
-    private static String PHONE = "TELEPHONE_NUMBER";
-    private static String EMAIL = "EMAIL";
+    private static String PERSON = "PERSON";
 
-    public static ChangePersonDataFragmentDialog newInstance(String name, String phoneNumber, String email) {
+    public static ChangePersonDataFragmentDialog newInstance(Person person) {
         ChangePersonDataFragmentDialog fragment = new ChangePersonDataFragmentDialog();
         Bundle args = new Bundle();
-        args.putString(NAME, name);
-        args.putString(PHONE, phoneNumber);
-        args.putString(EMAIL, email);
+        args.putSerializable(PERSON, person);
         fragment.setArguments(args);
         return fragment;
     }
@@ -74,7 +72,7 @@ public class ChangePersonDataFragmentDialog extends DialogFragment implements Vi
     @Override
     public void onAttachFragment(Fragment childFragment) {
         super.onAttachFragment(childFragment);
-        mCallBack = (CallBackDialogFragmentPerson)childFragment;
+        mCallBack = (CallBackDialogFragmentPerson) childFragment;
     }
 
     @Override
@@ -87,8 +85,16 @@ public class ChangePersonDataFragmentDialog extends DialogFragment implements Vi
                              Bundle savedInstanceState) {
         mView = inflater.inflate(
                 R.layout.fragment_dialog_chang_person, container);
-
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            mPerson = (Person) bundle.getSerializable(PERSON);
+        }
         updateViewDependencies(mView);
+
+        mEditTextName.setText(mPerson.getName());
+        mEditTextTelephoneNumber.setText(mPerson.getTelephoneNumber());
+        mEditTextEmail.setText(mPerson.getEmail());
+
         mValidator = new Validator(this);
         mValidator.setValidationListener(this);
         return mView;
@@ -105,10 +111,9 @@ public class ChangePersonDataFragmentDialog extends DialogFragment implements Vi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
+            switch (v.getId()) {
             case R.id.button_change_person_data: {
                 mValidator.validate();
-                dismiss();
                 break;
             }
             case R.id.button_do_not_change_person_data: {
@@ -122,10 +127,13 @@ public class ChangePersonDataFragmentDialog extends DialogFragment implements Vi
     @Override
     public void onValidationSucceeded() {
         mCallBack.clickButtonChangePersonData(
-                mEditTextName.getText().toString(),
-                mEditTextTelephoneNumber.getText().toString(),
-                mEditTextEmail.getText().toString()
+                new Person(
+                        mEditTextName.getText().toString(),
+                        mEditTextTelephoneNumber.getText().toString(),
+                        mEditTextEmail.getText().toString()
+                )
         );
+        dismiss();
     }
 
     @Override

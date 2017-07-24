@@ -2,6 +2,9 @@ package com.forste.manicure.model;
 
 import android.graphics.Bitmap;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -9,21 +12,21 @@ import java.util.Date;
  */
 
 public class News {
-    private Date mDate;
+    private Calendar mDate;
     private Bitmap mImageFirst;
     private Bitmap mImageSecond;
 
-    public News(Date date, Bitmap imageFirst, Bitmap imageSecond) {
+    public News(Calendar date, Bitmap imageFirst, Bitmap imageSecond) {
         mDate = date;
         mImageFirst = imageFirst;
         mImageSecond = imageSecond;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         mDate = date;
     }
 
@@ -41,5 +44,12 @@ public class News {
 
     public void setImageSecond(Bitmap imageSecond) {
         mImageSecond = imageSecond;
+    }
+
+    public String publicationDate() {
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+        dateFormat.setCalendar(mDate);
+        String dateFormatted = dateFormat.format(mDate.getTime());
+        return dateFormatted;
     }
 }

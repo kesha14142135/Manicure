@@ -1,6 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_layout_registration"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.forste.manicure.view.fragment.RegistrationFragment">
@@ -16,7 +17,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="20dp"
-            android:background="@drawable/ic_back"/>
+            android:background="@drawable/ic_back" />
 
         <ImageView
             android:id="@+id/image_view_photo_user"
@@ -24,64 +25,91 @@
             android:layout_height="@dimen/image_view_logo_height"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/image_view_logo_margin"
-            android:background="@drawable/ic_girl" />
+            android:background="@drawable/photo_camera" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/image_view_photo_user"
-            android:layout_margin="@dimen/relative_layout_margin">
+            android:layout_marginBottom="@dimen/relative_layout_margin_bottom"
+            android:layout_marginLeft="@dimen/relative_layout_margin"
+            android:layout_marginRight="@dimen/relative_layout_margin"
+            android:layout_marginTop="@dimen/relative_layout_margin">
 
-            <EditText
-                android:id="@+id/edit_text_phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_authorization_height"
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_name"
+                style="@style/CardViewTheme"
                 android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:hint="@string/TelephoneNumber"
-                android:inputType="phone" />
+                app:cardElevation="@dimen/card_view_elevation">
 
-            <EditText
-                android:id="@+id/edit_text_password"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_authorization_height"
-                android:layout_below="@+id/edit_text_phone_number"
+                <EditText
+                    android:id="@+id/edit_text_name"
+                    style="@style/EditTextTheme"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_phone_number"
+                style="@style/CardViewTheme"
+                android:layout_below="@id/card_view_name"
                 android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
+                app:cardElevation="@dimen/card_view_elevation">
 
-            <EditText
-                android:id="@+id/edit_text_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_authorization_height"
-                android:layout_below="@+id/edit_text_password"
+                <EditText
+                    android:id="@+id/edit_text_phone_number"
+                    style="@style/EditTextTheme"
+                    android:hint="@string/TelephoneNumber"
+                    android:inputType="phone" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_email"
+                style="@style/CardViewTheme"
+                android:layout_below="@+id/card_view_phone_number"
                 android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress" />
+                app:cardElevation="@dimen/card_view_elevation">
 
-            <EditText
-                android:id="@+id/edit_text_name"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_authorization_height"
-                android:layout_below="@+id/edit_text_email"
-                android:layout_marginBottom="@dimen/edit_text_password_margin_bottom"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:hint="@string/name"
-                android:inputType="textPersonName" />
+                <EditText
+                    android:id="@+id/edit_text_email"
+                    style="@style/EditTextTheme"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_password"
+                style="@style/CardViewTheme"
+                android:layout_below="@+id/card_view_email"
+                android:layout_marginBottom="@dimen/edit_text_phone_number_margin_bottom"
+                app:cardElevation="@dimen/card_view_elevation">
+
+                <EditText
+                    android:id="@+id/edit_text_password"
+                    style="@style/EditTextTheme"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+            </android.support.v7.widget.CardView>
 
             <Button
                 android:id="@+id/button_registration"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/edit_text_name"
+                style="@style/ButtonTheme"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/elevation_background"
+
                 android:text="@string/Registration" />
 
         </RelativeLayout>
+
+        <com.github.glomadrian.loadingballs.BallView
+            android:id="@+id/progress_bar"
+            style="@style/BallViewTheme"
+            app:ball_colors="@array/colors"
+            app:balls="5"
+            app:enable_size_animation="true"
+            app:max_ball_size="@dimen/ball_max_size"
+            app:min_ball_size="@dimen/ball_min_size"
+            app:movement_cycle_time="1500"
+            app:size_cycle_time="500" />
     </RelativeLayout>
 </FrameLayout>

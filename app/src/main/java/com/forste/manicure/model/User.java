@@ -6,20 +6,20 @@ package com.forste.manicure.model;
 
 public class User {
 
-    private String mTelephoneNumber;
+    private String mEmail;
     private String mPassword;
 
     public User(String telephoneNumber, String password) {
-        mTelephoneNumber = telephoneNumber;
+        mEmail = telephoneNumber;
         mPassword = password;
     }
 
-    public void setTelephoneNumber(String telephoneNumber) {
-        mTelephoneNumber = telephoneNumber;
+    public void setEmail(String email) {
+        mEmail = email;
     }
 
-    public String getTelephoneNumber() {
-        return mTelephoneNumber;
+    public String getEmail() {
+        return mEmail;
     }
 
     public void setPassword(String password) {

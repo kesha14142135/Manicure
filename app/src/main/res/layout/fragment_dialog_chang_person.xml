@@ -12,8 +12,12 @@
 
         <TextView
             android:id="@+id/text_view_dialog_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/you_data"
+            android:textColor="@color/colorWhite"
+            />
     </LinearLayout>
 
     <RelativeLayout
@@ -53,14 +57,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_change_person_data"
+                android:id="@+id/button_do_not_change_person_data"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/cancel" />
 
             <Button
-                android:id="@+id/button_do_not_change_person_data"
+                android:id="@+id/button_change_person_data"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

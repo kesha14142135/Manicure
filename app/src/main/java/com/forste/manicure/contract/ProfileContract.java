@@ -27,12 +27,9 @@ public interface ProfileContract {
 
         void getCurrentPersonData();
 
-        void changName(String name);
+        void changPersonData(Person person);
 
         void changPhoto(Bitmap photo);
 
-        void changTelephoneNumber(String telephoneNumber);
-
-        void changPassword(String password);
     }
 }

@@ -1,0 +1,109 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.forste.manicure.view.fragment.MasterProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_about_master"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_view_master"
+                android:layout_width="@dimen/image_view_height"
+                android:layout_height="@dimen/image_view_height"
+                android:background="@drawable/ic_girl" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/image_view_master"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_view_master_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+
+                    android:text="@string/master_name"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_view_about_master"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/about_master" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_master_phone_and_instagram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative_layout_about_master"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_master_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/image_view_phone"
+                    android:layout_width="@dimen/image_view_icon_height"
+                    android:layout_height="@dimen/image_view_icon_height"
+                    android:src="@mipmap/ic_phone" />
+
+                <TextView
+                    android:id="@+id/text_view_master_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/image_view_phone"
+                    android:gravity="center"
+                    android:text="@string/master_phone"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_layout_master_phone"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/image_view_instagram"
+                    android:layout_width="@dimen/image_view_icon_height"
+                    android:layout_height="@dimen/image_view_icon_height"
+                    android:background="@drawable/instagram_icon" />
+
+                <TextView
+                    android:id="@+id/text_view_master_inst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/image_view_instagram"
+                    android:gravity="center"
+                    android:text="@string/master_instagram"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_below="@+id/relative_layout_master_phone_and_instagram"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ec008c</color>
+    <color name="colorPrimaryDark">#243144</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorOrang">#ff6c22</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="ball1">#FFD91C</color>
+    <color name="ball2">#FF4B4A</color>
+    <color name="ball3">#3D8EFF</color>
+
+    <color name="colorActiveBar">#4384FF</color>
+    <color name="colorInActiveBar">#9B9B9B</color>
+
+    <integer-array name="colors">
+        <item>@color/ball1</item>
+        <item>@color/ball2</item>
+        <item>@color/ball3</item>
+    </integer-array>
+
 </resources>

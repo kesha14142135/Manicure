@@ -37,12 +37,11 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
     @Override
     public void onBindViewHolder(NewsFeedViewHolder holder, int position) {
-        holder.mTextViewNewsFeed.setText(mNewses.get(position).getDate().toString());
+        holder.mTextViewNewsFeed.setText(mNewses.get(position).publicationDate());
         if (mNewses.get(position).getImageFirst() != null)
-        holder.mImageViewManicureFirst.setImageBitmap(mNewses.get(position).getImageFirst());
+            holder.mImageViewManicureFirst.setImageBitmap(mNewses.get(position).getImageFirst());
         if (mNewses.get(position).getImageSecond() != null)
             holder.mImageViewManicureSecond.setImageBitmap(mNewses.get(position).getImageSecond());
-
     }
 
     @Override

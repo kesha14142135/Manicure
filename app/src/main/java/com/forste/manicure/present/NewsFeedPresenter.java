@@ -12,6 +12,7 @@ import com.forste.manicure.model.News;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -42,10 +43,10 @@ public class NewsFeedPresenter implements NewsFeedContract.Presenter {
         options.inJustDecodeBounds = true;
         Bitmap bitmap = BitmapFactory.decodeResource(mView.getContext().getResources(), R.drawable.manicure_first);
         Bitmap bitmapSecond = BitmapFactory.decodeResource(mView.getContext().getResources(), R.drawable.manicure_first);
-        news.add(new News(new Date(2017, 3, 21), bitmap, bitmapSecond));
-        news.add(new News(new Date(2017, 3, 22), bitmap, bitmapSecond));
-        news.add(new News(new Date(2017, 3, 23), bitmap, bitmapSecond));
-        news.add(new News(new Date(2017, 3, 24), bitmap, bitmapSecond));
+        news.add(new News(new GregorianCalendar(2017, 3, 21), bitmap, bitmapSecond));
+        news.add(new News(new GregorianCalendar(2017, 3, 22), bitmap, bitmapSecond));
+        news.add(new News(new GregorianCalendar(2017, 3, 23), bitmap, bitmapSecond));
+        news.add(new News(new GregorianCalendar(2017, 3, 24), bitmap, bitmapSecond));
         mView.getNewsFeeds(news);
     }
 }

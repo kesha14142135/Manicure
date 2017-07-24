@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "198011270010",
+    "firebase_url": "https://manicure-d9e76.firebaseio.com",
+    "project_id": "manicure-d9e76",
+    "storage_bucket": "manicure-d9e76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198011270010:android:d3023b8c37b9e87c",
+        "android_client_info": {
+          "package_name": "com.forste.manicure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198011270010-t7a2knt8e0r6usva0r5ieovqqg84l9i9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFo-q_KzIHrFZ800YkfO6GgEnQ9cJ7D54"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

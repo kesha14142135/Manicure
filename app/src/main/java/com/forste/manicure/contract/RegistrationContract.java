@@ -13,6 +13,6 @@ public interface RegistrationContract {
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
-        void registration(Person person);
+        void registration(Person person, String password);
     }
 }

@@ -8,7 +8,7 @@ import com.forste.manicure.model.Person;
 
 public interface CallBackDialogFragmentPerson {
 
-    void clickButtonChangePersonData(String name, String telephoneNumber, String email);
+    void clickButtonChangePersonData(Person person);
 
     void clickButtonDoNotChangePersonData();
 }

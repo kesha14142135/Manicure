@@ -14,8 +14,10 @@ import com.forste.manicure.contract.AuthorizationContract;
 import com.forste.manicure.model.User;
 import com.forste.manicure.present.AuthorizationPresenter;
 import com.forste.manicure.view.callback.CallBackActivityFragment;
+import com.github.glomadrian.loadingballs.BallView;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
@@ -28,10 +30,10 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
     private AuthorizationContract.Presenter mPresenter;
     private Validator mValidator;
     private CallBackActivityFragment mCallBack;
+    private BallView mProgressBar;
 
-    @NotEmpty(messageResId = R.string.error_telephone_number_empty)
-    @Password(min = 9, scheme = Password.Scheme.NUMERIC, messageResId = R.string.error_telephone_number_min)
-    private EditText mEditTextTelephoneNumber;
+    @Email(messageResId = R.string.error_email_empty)
+    private EditText mEditTextEmail;
 
     @NotEmpty(messageResId = R.string.error_password_empty)
     @Password(min = 4, scheme = Password.Scheme.NUMERIC, messageResId = R.string.error_registration_min)
@@ -76,18 +78,21 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
 
     @Override
     public void authorizationWasSuccessful() {
+        mProgressBar.setVisibility(View.INVISIBLE);
         mCallBack.goToHomeScreen();
     }
 
     @Override
     public void showError(String message) {
+        mProgressBar.setVisibility(View.INVISIBLE);
         Snackbar.make(mView.findViewById(R.id.relative_layout_authorization), message, Snackbar.LENGTH_LONG)
                 .show();
     }
 
     private void updateViewDependencies(View view) {
+        mProgressBar = (BallView) view.findViewById(R.id.progress_bar);
         mEditTextPassword = (EditText) view.findViewById(R.id.edit_text_password);
-        mEditTextTelephoneNumber = (EditText) view.findViewById(R.id.edit_text_phone_number);
+        mEditTextEmail = (EditText) view.findViewById(R.id.edit_text_email);
 
         view.findViewById(R.id.button_authorization).setOnClickListener(this);
         view.findViewById(R.id.button_registration).setOnClickListener(this);
@@ -98,6 +103,8 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_authorization: {
+                mEditTextEmail.setBackgroundResource(R.drawable.edit_text_border_neutrally);
+                mEditTextPassword.setBackgroundResource(R.drawable.edit_text_border_neutrally);
                 mValidator.validate();
                 break;
             }
@@ -115,7 +122,7 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
     @Override
     public void onValidationSucceeded() {
         User user = new User(
-                mEditTextTelephoneNumber.getText().toString(),
+                mEditTextEmail.getText().toString(),
                 mEditTextPassword.getText().toString()
         );
         mPresenter.authorization(user);
@@ -123,15 +130,19 @@ public class AuthorizationFragment extends Fragment implements AuthorizationCont
 
     @Override
     public void onValidationFailed(List<ValidationError> errors) {
+        String textError = "";
         for (ValidationError error : errors) {
             View view = error.getView();
             String message = error.getCollatedErrorMessage(view.getContext());
             if (view instanceof EditText) {
-                ((EditText) view).setError(message);
+                ((EditText) view).setBackgroundResource(R.drawable.edit_text_border);
+                textError += message + "\n";
             } else {
                 Snackbar.make(mView.findViewById(R.id.relative_layout_authorization), message, Snackbar.LENGTH_LONG)
                         .show();
             }
         }
+        Snackbar.make(mView.findViewById(R.id.relative_layout_authorization), textError, Snackbar.LENGTH_LONG)
+                .show();
     }
 }
